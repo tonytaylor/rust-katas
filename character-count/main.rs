@@ -14,11 +14,14 @@ fn get_char_count(subject: String) -> usize {
     subject.chars().count()
 }
 
-fn print_result(subject: String, word_count: usize) {
-    println!("{} has {} characters.", subject, word_count)
+fn assemble_output(subject: String) -> String {
+    format!("{} has {} characters", subject.clone(), get_char_count(subject))
+}
+
+fn print_result(subject: String) -> () {
+    println!("{}", subject)
 }
 
 fn main() {
-    let input = get_input("What is the input string?");
-    print_result(input.clone(), get_char_count(input))
+    print_result(assemble_output(get_input("What is the input string?")))
 }
