@@ -4,10 +4,17 @@ fn get_input(prompt: &str) -> String {
     println!("{}", prompt);
     let mut input = String::new();
     match io::stdin().read_line(&mut input) {
-        Ok(_goes_into_input_var) => {},
-        Err(_no_updates_at_this_point) => {}
+        Ok(n) => {
+            if n < 2 {
+                get_input("please enter at least one character")
+            } else {
+                input.trim().to_string()
+            }
+        },
+        Err(e) => {
+            panic!("Error: {}", e);
+        }
     }
-    input.trim().to_string()
 }
 
 fn get_char_count(subject: String) -> usize {
@@ -23,5 +30,6 @@ fn print_result(subject: String) -> () {
 }
 
 fn main() {
-    print_result(assemble_output(get_input("What is the input string?")))
+    let txt = get_input("What is the input string?");
+    print_result(assemble_output(txt))
 }
