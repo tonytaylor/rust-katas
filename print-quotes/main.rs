@@ -17,18 +17,12 @@ fn get_input(prompt: &str) -> String {
     }
 }
 
-fn get_char_count(subject: String) -> usize {
-    subject.chars().count()
-}
-
-fn assemble_output(subject: String) -> String {
-    format!("{} has {} characters", subject.clone(), get_char_count(subject))
-}
-
-fn print_result(subject: String) -> () {
-    println!("{}", subject)
+fn prepare_quote(raw_quote: String) -> String {
+    String::from(raw_quote)
 }
 
 fn main() {
-    print_result(assemble_output(get_input("What is the input string?")))
+    println!("{} says {}", 
+        get_input("Who said it?"), prepare_quote(get_input("What is the quote?")));
 }
+

@@ -17,18 +17,14 @@ fn get_input(prompt: &str) -> String {
     }
 }
 
-fn get_char_count(subject: String) -> usize {
-    subject.chars().count()
-}
-
-fn assemble_output(subject: String) -> String {
-    format!("{} has {} characters", subject.clone(), get_char_count(subject))
-}
-
-fn print_result(subject: String) -> () {
-    println!("{}", subject)
+fn prepare_output(noun: String, verb: String, adjective: String, adverb: String) -> String {
+    format!("Do you {} your {} {} {}? That's hilarious!", verb, adjective, noun, adverb)
 }
 
 fn main() {
-    print_result(assemble_output(get_input("What is the input string?")))
+    let noun = get_input("Enter a noun:");
+    let verb = get_input("Enter a verb:");
+    let adj = get_input("Enter an adjective:");
+    let adv = get_input("Enter an adverb:");
+    println!("{}", prepare_output(noun, verb, adj, adv));
 }
