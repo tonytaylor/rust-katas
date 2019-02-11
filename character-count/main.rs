@@ -30,6 +30,5 @@ fn print_result(subject: String) -> () {
 }
 
 fn main() {
-    let txt = get_input("What is the input string?");
-    print_result(assemble_output(txt))
+    print_result(assemble_output(get_input("What is the input string?")))
 }
