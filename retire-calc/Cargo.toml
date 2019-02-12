@@ -1,0 +1,8 @@
+[package]
+name = "retire-calc"
+version = "0.1.0"
+authors = ["Tony Taylor <tony@tonetaylor.com>"]
+edition = "2018"
+
+[dependencies]
+chrono = "0.4"
