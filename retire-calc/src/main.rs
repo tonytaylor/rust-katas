@@ -1,7 +1,6 @@
 extern crate chrono;
 
 use std::io;
-use chrono::prelude::*;
 
 fn get_input(prompt: &str) -> i32 {
     println!("{}", prompt);
@@ -37,6 +36,7 @@ fn prepare_output(ytr: i32, current_yr: i32) -> String {
 }
 
 fn main() {
+    use chrono::prelude::{Local, Datelike};
     let curr_age = get_input("What is your current age?");
     let retire_age = get_input("At what age would you like to retire?");
     println!("{}", prepare_output(years_to_work(retire_age, curr_age), Local::now().year()))
